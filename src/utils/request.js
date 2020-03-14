@@ -14,10 +14,11 @@ import {
 import store from '@/store'
 
 // create an axios instance
+sessionStorage.setItem("baseUrl",process.env.VUE_APP_BASE_API)
 const service = axios.create({
 	baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
 	// withCredentials: true, // send cookies when cross-domain requests
-	timeout: 10000 // request timeout
+	timeout: 100000 // request timeout
 })
 let serviceAccout = 0;
 let boxloading;

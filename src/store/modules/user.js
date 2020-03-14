@@ -2,7 +2,7 @@
  * @Author: 赵新朋
  * @Date: 2020-03-11 17:13:47
  * @LastEditors: 赵新朋
- * @LastEditTime: 2020-03-14 09:39:25
+ * @LastEditTime: 2020-03-12 17:15:31
  * @Description:
  */
 import { login, getCaptch, registerCaptch, register, logout, getInfo } from '@/api/user'
@@ -40,10 +40,9 @@ const actions = {
       login({ loginName: loginName.trim(), password: password, phone: captch }).then(response => {
         commit('SET_TOKEN', response.result.sessionId)
         setToken(response.result.sessionId)
-        console.log(response)
-        window.sessionStorage.setItem('state',response.result.sysUser.state)
         window.sessionStorage.setItem('id', response.result.sysUser.id)
         window.sessionStorage.setItem('status', response.result.sysUser.status)
+        window.sessionStorage.setItem('token', response.result.sessionId)
         resolve()
       }).catch(error => {
         reject(error)
@@ -83,22 +82,22 @@ const actions = {
   },
   // user logout
   logout({ commit }) {
-	    resetRouter()
+	  resetRouter()
 	  commit('LOGOUT')
-	 window.sessionStorage.clear('userId')
-	 window.sessionStorage.clear('userName')
+	 window.sessionStorage.clear('id')
+	 window.sessionStorage.clear('loginName')
 	 window.sessionStorage.clear('token')
-	 window.sessionStorage.clear('role')
+	 window.sessionStorage.clear('status')
   },
 
   // remove token
   resetToken({ commit }) {
 	    resetRouter()
     commit('LOGOUT')
-    window.sessionStorage.clear('userId')
-    window.sessionStorage.clear('userName')
+    window.sessionStorage.clear('id')
+    window.sessionStorage.clear('loginName')
     window.sessionStorage.clear('token')
-	 window.sessionStorage.clear('role')
+	 window.sessionStorage.clear('status')
   }
 }
 

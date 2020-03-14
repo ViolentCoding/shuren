@@ -2,7 +2,7 @@
  * @Author: 赵新朋
  * @Date: 2020-03-11 17:13:47
  * @LastEditors: 赵新朋
- * @LastEditTime: 2020-03-12 15:40:24
+ * @LastEditTime: 2020-03-12 17:32:28
  * @Description
  -->
 <template>
@@ -116,36 +116,25 @@ export default {
 }
 
 </script>
-<style>
-  .el-select .el-input {
-    width: 130px;
-  }
-  .input-with-select .el-input-group__prepend {
-    background-color: #fff;
-  }
-  .text {
+<style lang='scss'>
+  .search{
+      .input-with-select .el-input-group__prepend {
+        background-color: #fff;
+      }
+      .el-select .el-input {
+        width: 130px;
+      }
+    .item {
+        width: 100px !important;
+        margin-bottom: 18px;
+      }
+       .text {
     font-size: 14px;
   }
-
-  .item {
-	width: 100px;
-    margin-bottom: 18px;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    display: table;
-    content: "";
-  }
-  .clearfix:after {
-    clear: both
-  }
-  .el-col{
-	margin:0 36px 20px;
-  }
   .el-input-group__append{
-	background-color: #9ab734;
+	background-color: #9ab734 !important;
 	color:#fff;
+  }
   }
 </style>
 <style lang='scss'>
@@ -156,7 +145,7 @@ export default {
 			.el-input__inner{
 				height:50px !important;
 				line-height: 50px;
-			}
+      }
 		}
 		.notes{
 			display: flex;
@@ -223,6 +212,17 @@ export default {
 			}
 			.block{
 				float: right;
-			}
+      }
+      .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+  .el-col{
+	margin:0 36px 20px;
+  }
 	}
 </style>

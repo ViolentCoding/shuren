@@ -1,10 +1,3 @@
-<!--
- * @Author: 赵新朋
- * @Date: 2020-03-11 17:13:46
- * @LastEditors: 赵新朋
- * @LastEditTime: 2020-03-12 13:44:51
- * @Description: 
- -->
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
@@ -31,11 +24,10 @@ export default {
   width: 100%;
   position: relative;
   overflow: hidden;
-  background: #f4f7f9; 
+  background: #f4f7f9;
+  
 }
 .fixed-header+.app-main {
-  height:calc(100% - 50px);
-  overflow: auto;
   margin-top: 50px;
   padding: 20px 6%;
   height: calc(100% - 50px);
