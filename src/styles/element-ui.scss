@@ -1,0 +1,68 @@
+// cover some element-ui styles
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block
+  }
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+  box-sizing: content-box;
+}
+
+//  el-radio-group style
+
+.el-radio-button__inner{
+    background: $btnGroupBg;
+	color:$menuText;
+	border: 1px solid #40899e;
+}
+.el-radio-button__inner:hover {
+    color:$menuText ;
+}
+.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+    color: $menuActiveText;
+    background-color:$menuBg ;
+    border-color: $menuBg;
+}
+// el-pagination style
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: $btnGroupBg;
+
+}
