@@ -2,7 +2,7 @@
  * @Author: 赵新朋
  * @Date: 2020-03-11 17:13:47
  * @LastEditors: 赵新朋
- * @LastEditTime: 2020-03-13 11:36:29
+ * @LastEditTime: 2020-03-14 09:39:25
  * @Description:
  */
 import { login, getCaptch, registerCaptch, register, logout, getInfo } from '@/api/user'
@@ -40,9 +40,10 @@ const actions = {
       login({ loginName: loginName.trim(), password: password, phone: captch }).then(response => {
         commit('SET_TOKEN', response.result.sessionId)
         setToken(response.result.sessionId)
+        console.log(response)
+        window.sessionStorage.setItem('state',response.result.sysUser.state)
         window.sessionStorage.setItem('id', response.result.sysUser.id)
-        window.sessionStorage.setItem('state', response.result.sysUser.state)
-        window.sessionStorage.setItem('token', response.result.sessionId)
+        window.sessionStorage.setItem('status', response.result.sysUser.status)
         resolve()
       }).catch(error => {
         reject(error)
@@ -74,7 +75,6 @@ const actions = {
     const { loginName, password, captch } = info
     return new Promise((resolve, reject) => {
       register({ loginName: loginName.trim(), password: password, phone: captch }).then(response => {
-        console.log(response)
         resolve()
       }).catch(error => {
         reject(error)
@@ -83,10 +83,10 @@ const actions = {
   },
   // user logout
   logout({ commit }) {
-	  resetRouter()
+	    resetRouter()
 	  commit('LOGOUT')
-	 window.sessionStorage.clear('id')
-	 window.sessionStorage.clear('loginName')
+	 window.sessionStorage.clear('userId')
+	 window.sessionStorage.clear('userName')
 	 window.sessionStorage.clear('token')
 	 window.sessionStorage.clear('role')
   },
@@ -95,10 +95,10 @@ const actions = {
   resetToken({ commit }) {
 	    resetRouter()
     commit('LOGOUT')
-    window.sessionStorage.clear('id')
-    window.sessionStorage.clear('loginName')
+    window.sessionStorage.clear('userId')
+    window.sessionStorage.clear('userName')
     window.sessionStorage.clear('token')
-	 window.sessionStorage.clear('status')
+	 window.sessionStorage.clear('role')
   }
 }
 

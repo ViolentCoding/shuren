@@ -2,10 +2,10 @@
  * @Author: 赵新朋
  * @Date: 2020-03-12 14:36:24
  * @LastEditors: 赵新朋
- * @LastEditTime: 2020-03-14 17:17:58
+ * @LastEditTime: 2020-03-12 14:56:45
  * @Description:
  */
-import { search, getuserInfo } from '@/api/search'
+import { search } from '@/api/search'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 const getDefaultState = () => {
@@ -24,21 +24,9 @@ const mutations = {
 const actions = {
   searchform({ commit }, info) {
     console.log(info)
-    const { keywords, pageNo, pageSize,area} = info
+    const { loginName, password, captch } = info
     return new Promise((resolve, reject) => {
-      search({ keywords:keywords.trim(),pageNo:pageNo,pageSize:pageSize,area:area}).then(response => {
-        console.log(response)
-        resolve(response)
-      }).catch(error => {
-        reject(error)
-      })
-    })
-  },
-  userInfo({commit}, info ){
-    const {uid, companyId  } =info
-    return new Promise((resolve, reject) => {
-      getuserInfo({ uid:uid, companyId:companyId }).then(response => {
-        console.log(response)
+      search({ loginName: loginName.trim(), password: password, phone: captch }).then(response => {
         resolve()
       }).catch(error => {
         reject(error)

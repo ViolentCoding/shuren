@@ -1,8 +1,8 @@
 /*
  * @Author: 赵新朋
- * @Date: 2020-03-12 16:16:48
+ * @Date: 2020-03-11 17:13:47
  * @LastEditors: 赵新朋
- * @LastEditTime: 2020-03-13 10:12:20
+ * @LastEditTime: 2020-03-12 14:57:23
  * @Description: 
  */
 import Vue from 'vue'
@@ -11,9 +11,8 @@ import getters from './getters'
 import app from './modules/app'
 import settings from './modules/settings'
 import user from './modules/user'
-import permission from './modules/permission'
-import infoData from './modules/infoData'
 import search from './modules/search'
+import permission from './modules/permission'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -21,9 +20,8 @@ const store = new Vuex.Store({
     app,
     settings,
     user,
-	 permission,
-   infoData,
-   search
+    search,
+	  permission
   },
   getters
 })

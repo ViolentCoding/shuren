@@ -1,10 +1,3 @@
-<!--
- * @Author: 赵新朋
- * @Date: 2020-03-12 16:16:48
- * @LastEditors: 赵新朋
- * @LastEditTime: 2020-03-14 16:25:57
- * @Description:
- -->
 <template>
   <div class="login-box">
     <div class="login">
@@ -172,7 +165,7 @@ export default {
       const TIME_COUNT = 60 // 更改倒计时时间
       this.btn = true
       console.log(this.loginForm.loginName)
-      this.$store.dispatch('user/getCaptch', this.loginForm.loginName).then(() => {
+      this.$store.dispatch('user/registerCaptch', this.loginForm.loginName).then(() => {
         console.log
       })
       if (!this.timer) {
